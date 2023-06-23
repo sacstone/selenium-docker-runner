@@ -19,7 +19,7 @@ pipeline {
                 sh "ls -R selenium-docker-runner/output"
 
                 // Archive artifacts
-                archiveArtifacts artifacts: 'selenium-docker-runner/output/**', fingerprint: true
+                //archiveArtifacts artifacts: 'selenium-docker-runner/output/**', fingerprint: true
 
             }
             sh "docker-compose down"
