@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("Clean Workspace") {
-            steps {
-                deleteDir()
-            }
-        }
         stage("Start Grid") {
             steps {
                 sh "docker-compose up -d hub chrome firefox"
