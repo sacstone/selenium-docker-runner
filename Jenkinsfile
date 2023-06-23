@@ -1,6 +1,9 @@
 pipeline{
     agent any
     stages{
+        stage("Pull Latest Image") {
+            sh "docker pull sacstone/selenium-docker"
+        }
         stage("Start Grid"){
             steps{
                 sh "docker-compose up -d hub chrome firefox"
