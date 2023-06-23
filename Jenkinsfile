@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage("Clean Workspace") {
+            steps {
+                deleteDir()
+            }
+        }
         stage("Start Grid") {
             steps {
                 sh "docker-compose up -d hub chrome firefox"
@@ -19,7 +24,7 @@ pipeline {
                 sh "ls -R output"
 
                 // Archive artifacts with an updated file pattern
-                archiveArtifacts artifacts: 'output/**'
+                archiveArtifacts artifacts: '${WORKSPACE}/output/**'
             }
             sh "docker-compose down"
         }
