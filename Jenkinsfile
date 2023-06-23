@@ -2,7 +2,9 @@ pipeline{
     agent any
     stages{
         stage("Pull Latest Image") {
-            sh "docker pull sacstone/selenium-docker"
+	     steps{
+                 sh "docker pull sacstone/selenium-docker"
+             }
         }
         stage("Start Grid"){
             steps{
