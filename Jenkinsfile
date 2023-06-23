@@ -19,7 +19,8 @@ pipeline {
                 sh "ls -R output"
                 // Archive artifacts
                 dir("${WORKSPACE}") {
-                    archiveArtifacts artifacts: 'output/**', fingerprint: true
+                archiveArtifacts artifacts: '/Users/rameshdhanenkula/Documents/workspace/selenium-docker-runner/output/**', fingerprint: true
+
                 }
             }
             sh "docker-compose down"
