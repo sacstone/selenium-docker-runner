@@ -17,9 +17,10 @@ pipeline {
             script {
                 // Debug output to list the files in the artifact directory
                 sh "ls -R output"
-
-                // Archive artifacts with an updated file pattern
-                archiveArtifacts artifacts: '${WORKSPACE}/output/**'
+                // Archive artifacts
+                dir("${WORKSPACE}") {
+                    archiveArtifacts artifacts: 'output/**', fingerprint: true
+                }
             }
             sh "docker-compose down"
         }
