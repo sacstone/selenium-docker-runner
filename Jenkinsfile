@@ -16,12 +16,11 @@ pipeline {
         always {
             script {
                 // Debug output to list the files in the artifact directory
-                sh "ls -R output"
-                // Archive artifacts
-                dir("${WORKSPACE}") {
-                archiveArtifacts artifacts: '/Users/rameshdhanenkula/Documents/workspace/selenium-docker-runner/output/**', fingerprint: true
+                sh "ls -R selenium-docker-runner/output"
 
-                }
+                // Archive artifacts
+                archiveArtifacts artifacts: 'selenium-docker-runner/output/**', fingerprint: true
+
             }
             sh "docker-compose down"
         }
